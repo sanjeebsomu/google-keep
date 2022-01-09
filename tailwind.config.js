@@ -3,7 +3,16 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    fontSize: {
+      lg: ['22px', {
+        lineHeight: '27px',
+      }],
+    },
+    extend: {
+      fontFamily: {
+        body: ['Roboto']
+      }
+    },
   },
   plugins: [],
 }
