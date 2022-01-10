@@ -16,19 +16,19 @@ const Header = () => {
                     <h1 className='text-lg ml-1 pl-1 font-body'>Keep</h1>
                 </div>
                     <div className='flex justify-between items-center'>
-                        <div className='px-4'>
+                        <div className='px-2 sm:px-4'>
                             <SearchIcon />
                         </div>
-                        <div className='px-4'>
+                        <div className='px-2 sm:px-4'>
                             <RefreshIcon />
                         </div>
-                        <div className='px-4'>
+                        <div className='px-2 sm:px-4'>
                             <SettingsOutlinedIcon />
                         </div>
-                        <div className='px-4'>
+                        <div className='px-2 sm:px-4'>
                             <BallotIcon />
                         </div>
-                        <div className='px-4'>
+                        <div className='px-2 sm:px-4'>
                             <img className='rounded-full' src="https://lh3.googleusercontent.com/ogw/ADea4I7iAU1xMMQGvquoTT35uRTSPC6b9wB046hi1qJ4D6Q=s32-c-mo" alt="profile" />
                         </div>
                     </div>
