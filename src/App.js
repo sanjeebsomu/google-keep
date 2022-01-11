@@ -27,7 +27,7 @@ const [newNote, setNewNote] = useState({
 
     }
     const addNote = () => {
-      if(newNote.title.length < 1 && newNote.description.length < 1){
+      if(newNote.title.length < 1 || newNote.description.length < 1){
         console.log('note is empty');     //when note is empty do nothing
       }
       else{
