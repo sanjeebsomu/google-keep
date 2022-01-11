@@ -38,13 +38,12 @@ const [newNote, setNewNote] = useState({
         setNewNote({title:"", description:""})
       }
       }
-      
-
+  
   return (
     <>
       <Header />
       { show? <Input takeNote={takeNote}/> : <MaxInput minInput={minInput} handleInput={handleInput} newNote={newNote} addNote={addNote}/> }
-      <Notes notes={notes}/>
+      <Notes notes={notes} setNotes = {setNotes}/>
     </>
   );
 }
