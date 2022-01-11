@@ -24,6 +24,7 @@ const MaxInput = (props) => {
                         name="title"
                         id="title"
                         placeholder="Title"
+                        value={props.newNote.title}
                     />
                     <textarea
                         style={{resize: 'none'}}
@@ -33,6 +34,7 @@ const MaxInput = (props) => {
                         name="description"
                         id="description"
                         placeholder="Take a Note..."
+                        value={props.newNote.description}
                     />
                     <div className='flex py-2 justify-evenly'>
                         <div className='opacity-70'>

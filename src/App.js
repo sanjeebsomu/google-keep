@@ -25,18 +25,17 @@ const [newNote, setNewNote] = useState({
     setNewNote({...newNote, [name]:value})
 
     }
-    const addNote = () => {
-    console.log(notes);
-    console.log('added');
-    setNotes((oldNote) => {
-      return [...oldNote, newNote];
-    });
+    const addNote = (e) => {
+      setNotes((oldNote) => {
+        return [...oldNote, newNote];
+      });
+      setNewNote({title:"", description:""})
   }
 
   return (
     <>
       <Header />
-      { show? <Input takeNote={takeNote}/> : <MaxInput minInput={minInput} handleInput={handleInput} addNote={addNote}/> }
+      { show? <Input takeNote={takeNote}/> : <MaxInput minInput={minInput} handleInput={handleInput} newNote={newNote} addNote={addNote}/> }
       <Notes notes={notes}/>
     </>
   );
