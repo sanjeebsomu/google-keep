@@ -5,6 +5,7 @@ import Input from './components/Input';
 import MaxInput from './components/MaxInput';
 import Notes from './components/Notes';
 
+let globalID = 0;
 function App() {
   
 const [show, setShow] = useState(true);
@@ -25,12 +26,19 @@ const [newNote, setNewNote] = useState({
     setNewNote({...newNote, [name]:value})
 
     }
-    const addNote = (e) => {
-      setNotes((oldNote) => {
-        return [...oldNote, newNote];
-      });
-      setNewNote({title:"", description:""})
-  }
+    const addNote = () => {
+      if(newNote.title.length < 1 && newNote.description.length < 1){
+        console.log('note is empty');     //when note is empty do nothing
+      }
+      else{
+        setNotes((oldNote) => {
+          const data = {id:globalID++, name:newNote} //do not need to pass this as props to get the data, don't be confused.All the data is storing in notes through set notes, with this notes is now a object that contains id, title and description
+          return [...oldNote, data];
+        });
+        setNewNote({title:"", description:""})
+      }
+      }
+      
 
   return (
     <>
