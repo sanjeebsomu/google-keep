@@ -5,7 +5,7 @@ import Input from './components/Input';
 import MaxInput from './components/MaxInput';
 import Notes from './components/Notes';
 
-let globalID = 0;
+// let globalID = 0;
 function App() {
 
   const getLocalKeeps = () => {
@@ -42,7 +42,7 @@ const [newNote, setNewNote] = useState({
       }
       else{
         setNotes((oldNote) => {
-          const data = {id:globalID++, name:newNote} //do not need to pass this as props to get the data, don't be confused.All the data is storing in notes through set notes, with this notes is now a object that contains id, title and description
+          const data = {id:new Date().getTime().toString(), name:newNote} //do not need to pass this as props to get the data, don't be confused.All the data is storing in notes through set notes, with this notes is now a object that contains id, title and description
           return [...oldNote, data];
         });
         setNewNote({title:"", description:""})
