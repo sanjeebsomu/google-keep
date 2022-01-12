@@ -9,7 +9,8 @@ const Notes = ({notes, setNotes, handleUpdate}) => {
     
     setNotes(updatedNote);
   }
-  
+  let day = new Date().toLocaleDateString();
+  let time = new Date().toLocaleTimeString();
   return (
     <>
           <div className="flex justify-center mt-20">
@@ -19,7 +20,8 @@ const Notes = ({notes, setNotes, handleUpdate}) => {
                     <div key={noteGrid.id} className="border-2 rounded-lg hover:shadow-md">
                     <div className="block break-words text-md tracking-wide font-medium pt-4 pl-4 pr-4">{noteGrid.name.title}</div>
                     <div className="block break-words text-sm pt-1 pl-4 pb-4 pr-4">{noteGrid.name.description}</div>
-                    <div className="opacity-70 p-2 flex justify-end">
+                    <div className="opacity-70 p-2 flex justify-between">
+                      <div className="opacity-80 text-sm">{day} {time}</div>
                       <button className="px-2" onClick={()=>handleRemove(noteGrid.id)}> 
                         <DeleteOutlineOutlinedIcon fontSize="small"/>
                       </button>
