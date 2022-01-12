@@ -45,7 +45,7 @@ const [newNote, setNewNote] = useState({
         setNotes(
           notes.map((elem)=>{
              if(elem.id === isEdited){
-                return {...elem, name:newNote}
+                return {...elem, name:newNote} //update name(title and description) of selected item
             }
             return elem;
           })
@@ -88,7 +88,7 @@ const [newNote, setNewNote] = useState({
       <Notes notes={notes} setNotes = {setNotes} handleUpdate={handleUpdate}/>
       <div className='flex justify-center pb-2'>
         <a className='text-indigo-700 font-semibold fixed bottom-10' href="https://github.com/sanjeebsomu" target="_blank" rel="noopener noreferrer">Visit My Github Profile</a>
-        <p className='text-pink-600 fixed bottom-2'>With ❤ From Sanjeeb</p>
+        <p className='text-pink-600 fixed bottom-2'>Made With ❤ From Sanjeeb</p>
       </div>
     </>
   );
