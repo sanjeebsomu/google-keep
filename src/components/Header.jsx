@@ -33,11 +33,10 @@ const Header = () => {
             </button>
           </Tooltip>
           <Tooltip title="Keep">
-              <button>
+            <button>
               <h1 className="text-lg ml-1 pl-1 font-body">Keep</h1>
-              </button>
-            </Tooltip>
-          
+            </button>
+          </Tooltip>
         </div>
         <div className="flex justify-between items-center">
           <div className="px-2 sm:px-4">
@@ -49,7 +48,7 @@ const Header = () => {
           </div>
           <div className="px-2 sm:px-4">
             <Tooltip title="Refresh">
-              <button>
+              <button onClick={()=>window.location.reload()}>
                 <RefreshIcon />
               </button>
             </Tooltip>
