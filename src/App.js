@@ -86,9 +86,9 @@ const [newNote, setNewNote] = useState({
       <Header />
       { show? <Input takeNote={takeNote}/> : <MaxInput minInput={minInput} handleInput={handleInput} handleUpdate={handleUpdate} newNote={newNote} addNote={addNote} notes={notes} toggleAdd = {toggleAdd} setToggleAdd = {setToggleAdd}/> }
       <Notes notes={notes} setNotes = {setNotes} handleUpdate={handleUpdate}/>
-      <div className='flex justify-center pb-2'>
-        <a className='text-indigo-700 font-semibold fixed bottom-10' href="https://github.com/sanjeebsomu" target="_blank" rel="noopener noreferrer">Visit My Github Profile</a>
-        <p className='text-pink-600 fixed bottom-2'>Made With ❤ From Sanjeeb</p>
+      <div className='flex flex-col items-center my-4 pb-2'>
+        <a className='text-indigo-700 font-semibold bottom-4' href="https://github.com/sanjeebsomu" target="_blank" rel="noopener noreferrer">Visit My Github Profile</a>
+        <p className='text-pink-600 bottom-0'>Made With ❤ From Sanjeeb</p>
       </div>
     </>
   );

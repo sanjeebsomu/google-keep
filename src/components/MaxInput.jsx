@@ -21,7 +21,7 @@ const MaxInput = (props) => {
                     <textarea
                         style={{resize: 'none'}}
                         onChange={props.handleInput}
-                        className="w-full pr-52 pt-2 placeholder:text-gray-600 text-lg font-semibold tracking-wide pl-4 outline-none"
+                        className="w-full pr-52 py-2 placeholder:text-gray-600 text-lg font-semibold tracking-wide pl-4 outline-none"
                         type="text"
                         name="title"
                         id="title"
@@ -31,7 +31,7 @@ const MaxInput = (props) => {
                     <textarea
                         style={{resize: 'none'}}
                         onChange={props.handleInput}
-                        className="w-full pr-52 placeholder:text-gray-600 text-sm font-medium tracking-wide pl-4 outline-none"
+                        className="w-full py-2 pr-52 placeholder:text-gray-600 text-sm font-medium tracking-wide pl-4 outline-none"
                         type="text"
                         name="description"
                         id="description"
