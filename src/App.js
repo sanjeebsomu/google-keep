@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './App.css';
 import Header from './components/Header';
 import Input from './components/Input';
@@ -7,9 +7,18 @@ import Notes from './components/Notes';
 
 let globalID = 0;
 function App() {
+
+  const getLocalKeeps = () => {
+    let keep = localStorage.getItem('keep');
+    if(keep){
+      return JSON.parse(keep)
+    }else{
+      return [];
+    }
+  }
   
 const [show, setShow] = useState(true);
-const [notes, setNotes] = useState([]);
+const [notes, setNotes] = useState(getLocalKeeps());
 const [newNote, setNewNote] = useState({
   title:"",
   description:""
@@ -26,6 +35,7 @@ const [newNote, setNewNote] = useState({
     setNewNote({...newNote, [name]:value})
 
     }
+
     const addNote = () => {
       if(newNote.title.length < 1 || newNote.description.length < 1){
         console.log('note is empty');     //when note is empty do nothing
@@ -38,7 +48,11 @@ const [newNote, setNewNote] = useState({
         setNewNote({title:"", description:""})
       }
       }
-  
+
+      useEffect(() => {
+        localStorage.setItem('keep', JSON.stringify(notes))
+      }, [notes])
+
   return (
     <>
       <Header />

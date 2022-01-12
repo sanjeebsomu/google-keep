@@ -8,6 +8,7 @@ const Notes = ({notes, setNotes}) => {
     
     setNotes(updatedNote);
   }
+  
   return (
     <>
           <div className="flex justify-center mt-20">
