@@ -8,6 +8,8 @@ import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import UndoOutlinedIcon from '@mui/icons-material/UndoOutlined';
 import RedoOutlinedIcon from '@mui/icons-material/RedoOutlined';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+
 
 const MaxInput = (props) => {
 
@@ -61,9 +63,16 @@ const MaxInput = (props) => {
                         <div className='opacity-30'>
                             <RedoOutlinedIcon fontSize='small'/>
                         </div>
-                        <div className='opacity-70'>
-                            <button onClick={props.addNote}><AddBoxIcon fontSize='small'/></button>
-                        </div>
+                        {
+                            props.toggleAdd?  <div className='opacity-70'>
+                                        <button onClick={props.addNote}><AddBoxIcon fontSize='small'/></button>
+                                        </div>
+                                        : 
+                                        <button className="px-2" onClick={props.addNote}>
+                                        <EditOutlinedIcon />
+                                        </button>
+                        }
+                        
                         <div onClick={props.minInput} className='font-medium'>
                             <button>Close</button>
                         </div>

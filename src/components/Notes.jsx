@@ -1,7 +1,8 @@
 import React from "react";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
-const Notes = ({notes, setNotes}) => {
+const Notes = ({notes, setNotes, handleUpdate}) => {
 
   const handleRemove = (id) => {
     const updatedNote = notes.filter((item) => item.id !== id); //Our notes/item contains 2 values id and name, so for those items doesn't matches with the given id, store them and which one matches filter that out.
@@ -19,8 +20,11 @@ const Notes = ({notes, setNotes}) => {
                     <div className="block break-words text-md tracking-wide font-medium pt-4 pl-4 pr-4">{noteGrid.name.title}</div>
                     <div className="block break-words text-sm pt-1 pl-4 pb-4 pr-4">{noteGrid.name.description}</div>
                     <div className="opacity-70 p-2 flex justify-end">
-                      <button onClick={()=>handleRemove(noteGrid.id)}> 
+                      <button className="px-2" onClick={()=>handleRemove(noteGrid.id)}> 
                         <DeleteOutlineOutlinedIcon fontSize="small"/>
+                      </button>
+                      <button className="px-2" onClick={()=>handleUpdate(noteGrid.id)}>
+                        <EditOutlinedIcon />
                       </button>
                     </div>
                 </div>

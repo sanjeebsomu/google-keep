@@ -5,7 +5,6 @@ import Input from './components/Input';
 import MaxInput from './components/MaxInput';
 import Notes from './components/Notes';
 
-// let globalID = 0;
 function App() {
 
   const getLocalKeeps = () => {
@@ -19,6 +18,8 @@ function App() {
   
 const [show, setShow] = useState(true);
 const [notes, setNotes] = useState(getLocalKeeps());
+const [toggleAdd, setToggleAdd] = useState(true);
+const [isEdited, setIsEdited] = useState(null)
 const [newNote, setNewNote] = useState({
   title:"",
   description:""
@@ -38,7 +39,22 @@ const [newNote, setNewNote] = useState({
 
     const addNote = () => {
       if(newNote.title.length < 1 || newNote.description.length < 1){
-        console.log('note is empty');     //when note is empty do nothing
+        alert('Fill Both Field');     //when note is empty do nothing
+      }
+      else if(newNote && !toggleAdd){   //if there is something on the new note and if there is an edit icon
+        setNotes(
+          notes.map((elem)=>{
+             if(elem.id === isEdited){
+                return {...elem, name:newNote}
+            }
+            return elem;
+          })
+        )
+        setToggleAdd(true)
+        setNewNote(({
+          title:"",
+          description:""
+        }))
       }
       else{
         setNotes((oldNote) => {
@@ -49,6 +65,18 @@ const [newNote, setNewNote] = useState({
       }
       }
 
+      const handleUpdate = (id) => {
+        const newUpdatedNote = notes.find((item)=>item.id === id)
+        console.log(newUpdatedNote);
+        setShow(false)              //when we click on edit maxInput field should open
+        setToggleAdd(false)
+        setNewNote(({
+          title:newUpdatedNote.name.title,
+          description:newUpdatedNote.name.description
+        }))
+        setIsEdited(id);
+      }
+
       useEffect(() => {
         localStorage.setItem('keep', JSON.stringify(notes))
       }, [notes])
@@ -56,8 +84,8 @@ const [newNote, setNewNote] = useState({
   return (
     <>
       <Header />
-      { show? <Input takeNote={takeNote}/> : <MaxInput minInput={minInput} handleInput={handleInput} newNote={newNote} addNote={addNote}/> }
-      <Notes notes={notes} setNotes = {setNotes}/>
+      { show? <Input takeNote={takeNote}/> : <MaxInput minInput={minInput} handleInput={handleInput} handleUpdate={handleUpdate} newNote={newNote} addNote={addNote} notes={notes} toggleAdd = {toggleAdd} setToggleAdd = {setToggleAdd}/> }
+      <Notes notes={notes} setNotes = {setNotes} handleUpdate={handleUpdate}/>
     </>
   );
 }
