@@ -1,6 +1,7 @@
 import React from "react";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import { Tooltip } from "@mui/material";
 
 const Notes = ({notes, setNotes, handleUpdate}) => {
 
@@ -22,12 +23,16 @@ const Notes = ({notes, setNotes, handleUpdate}) => {
                     <div className="block break-words text-sm pt-1 pl-4 pb-4 pr-4">{noteGrid.name.description}</div>
                     <div className="opacity-70 p-2 flex justify-between">
                       <div className="opacity-80 text-sm">{day} {time}</div>
+                      <Tooltip title="Remove">
                       <button className="px-2" onClick={()=>handleRemove(noteGrid.id)}> 
                         <DeleteOutlineOutlinedIcon fontSize="small"/>
                       </button>
+                      </Tooltip>
+                      <Tooltip title="Edit Note">
                       <button className="px-2" onClick={()=>handleUpdate(noteGrid.id)}>
                         <EditOutlinedIcon />
                       </button>
+                      </Tooltip>
                     </div>
                 </div>
                 );

@@ -1,7 +1,8 @@
 import React from "react";
 import AddPhotoAlternateOutlinedIcon from "@mui/icons-material/AddPhotoAlternateOutlined";
-import NoteAddRoundedIcon from "@mui/icons-material/NoteAddRounded";
-import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
+import { IconButton, Tooltip } from "@mui/material";
+import BrushOutlinedIcon from '@mui/icons-material/BrushOutlined';
+import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 
 const Input = (props) => {
 
@@ -21,13 +22,21 @@ const Input = (props) => {
         </div>
         <div className="flex justify-between">
           <div className="px-1 lg:px-2">
-            <AddPhotoAlternateOutlinedIcon />
+          <Tooltip title='Add Image'>
+            <IconButton><AddPhotoAlternateOutlinedIcon /></IconButton>
+          </Tooltip>
+            
           </div>
           <div className="px-1 lg:px-2">
-            <NoteAddRoundedIcon />
+          <Tooltip title='Draw'>
+            <IconButton><BrushOutlinedIcon/></IconButton>
+          </Tooltip>
+            
           </div>
           <div className="px-1 lg:px-2">
-            <EditTwoToneIcon />
+          <Tooltip title='List'>
+            <IconButton><FormatListBulletedOutlinedIcon /></IconButton>
+          </Tooltip>
           </div>
         </div>
       </div>
