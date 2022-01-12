@@ -4,7 +4,7 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 const Notes = ({notes, setNotes}) => {
 
   const handleRemove = (id) => {
-    const updatedNote = notes.filter((item) => item.id !== id); //Our notes/item contains 2 values id and name, so item.id will iterate and when it's value matched with id value then   it will remove it, the setNotes(....)
+    const updatedNote = notes.filter((item) => item.id !== id); //Our notes/item contains 2 values id and name, so for those items doesn't matches with the given id, store them and which one matches filter that out.
     
     setNotes(updatedNote);
   }
